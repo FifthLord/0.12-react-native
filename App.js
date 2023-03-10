@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View, } from 'react-native';
-import { gStyle } from './styles/style';
+import { StyleSheet } from 'react-native';
 import * as Font from 'expo-font'
 import { useState } from 'react';
 import AppLoading from 'expo-app-loading';
+import Main from './components/Main';
 
 
 const fonts = () => Font.loadAsync({
@@ -15,9 +15,7 @@ export default function App() {
 
    if (font) {
       return (
-         <View style={gStyle.main}>
-            <Text style={gStyle.title}>Open up App.js to start working on your app!</Text>
-         </View>
+         <Main />
       );
    } else {
       return (
