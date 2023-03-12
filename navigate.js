@@ -1,6 +1,6 @@
 import React from 'react';
 import Main from './components/Main';
-import Contacts from './components/Contacts';
+import FullInfo from './components/FullInfo';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,9 +16,9 @@ export default function Navigate() {
             options={{ title: "Головна" }}
          />
          <Stack.Screen
-            name='Contacts'
-            component={Contacts}
-            options={{ title: "Контакти" }}
+            name='FullInfo'
+            component={FullInfo}
+            options={{ title: "Стаття" }}
          />
       </Stack.Navigator>
    </NavigationContainer>

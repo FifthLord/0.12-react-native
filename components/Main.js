@@ -1,16 +1,24 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
 import { gStyle } from '../styles/style';
 
 export default function Main({ navigation }) {
-   const loadScene = () => {
-      navigation.navigate('Contacts');
-   }
+
+   const [news, setNews] = useState([
+      { name: 'Google', anons: "Google-search", full: 'Google is cool browser' },
+      { name: 'Apple', anons: "Apple-phone", full: 'Apple is cool phone' },
+      { name: 'FaceBook', anons: "FaceBook-page", full: 'FaceBook is (not)cool' },
+   ])
 
    return (
       <View style={gStyle.main}>
          <Text style={gStyle.title}>Main Page</Text>
-         <Button title='Контакти' onPress={loadScene} />
+         <FlatList data={news} renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => navigation.navigate('FullInfo', item)}>
+               <Text>{item.name}</Text>
+               <Text>{item.anons}</Text>
+            </TouchableOpacity>
+         )} />
       </View>
    );
 }
