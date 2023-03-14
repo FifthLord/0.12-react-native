@@ -12,16 +12,16 @@ export default function Main({ navigation }) {
 
    return (
       <View style={gStyle.main}>
-         <Text style={gStyle.title}>Main Page</Text>
+         <Text style={[gStyle.title, styles.header]}>Main Page</Text>
          <FlatList data={news} renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => navigation.navigate('FullInfo', item)}>
+            <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('FullInfo', item)}>
                <Image source={{
                   width: '100%',
                   height: 250,
                   uri: item.img
                }} />
-               <Text>{item.name}</Text>
-               <Text>{item.anons}</Text>
+               <Text style={styles.title}>{item.name}</Text>
+               <Text style={styles.anons}>{item.anons}</Text>
             </TouchableOpacity>
          )} />
       </View>
@@ -29,5 +29,22 @@ export default function Main({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-
+   header: {
+      marginBottom: 30
+   },
+   item: {
+      width: '100%',
+      marginBottom: 30
+   }, title: {
+      fontFamily: 'mt-bold',
+      fontSize: 22,
+      textAlign: 'center',
+      marginTop: 20,
+      color: '#474747'
+   }, anons: {
+      fontSize: 16,
+      textAlign: 'center',
+      marginTop: 5,
+      color: '#474747'
+   }
 });
