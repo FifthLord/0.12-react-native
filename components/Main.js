@@ -15,11 +15,7 @@ export default function Main({ navigation }) {
          <Text style={[gStyle.title, styles.header]}>Main Page</Text>
          <FlatList data={news} renderItem={({ item }) => (
             <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('FullInfo', item)}>
-               <Image source={{
-                  width: '100%',
-                  height: 250,
-                  uri: item.img
-               }} />
+               <Image style={styles.image} source={{ uri: item.img }} />
                <Text style={styles.title}>{item.name}</Text>
                <Text style={styles.anons}>{item.anons}</Text>
             </TouchableOpacity>
@@ -29,6 +25,10 @@ export default function Main({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+   image: {
+      width: '100%',
+      height: 250,
+   },
    header: {
       marginBottom: 30
    },
