@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image, Modal } from 'react-native';
 import { gStyle } from '../styles/style';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Main({ navigation }) {
 
@@ -12,6 +13,11 @@ export default function Main({ navigation }) {
 
    return (
       <View style={gStyle.main}>
+         <Modal visible={false}>
+            <AntDesign name="closecircle" size={24} color="teal" />
+            <Text style={styles.title}>Modal Window</Text>
+         </Modal>
+         <AntDesign name="pluscircle" size={24} color="teal" />
          <Text style={[gStyle.title, styles.header]}>Main Page</Text>
          <FlatList data={news} renderItem={({ item }) => (
             <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('FullInfo', item)}>
