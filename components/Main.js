@@ -11,13 +11,17 @@ export default function Main({ navigation }) {
       { name: 'FaceBook', anons: "FaceBook-page", full: 'FaceBook is (not)cool', key: '3', img: 'https://i.pinimg.com/736x/51/36/c6/5136c6170576624611319370a1ddd3a0.jpg' },
    ])
 
+   const [modWind, setModWind] = useState(false);
+
    return (
       <View style={gStyle.main}>
-         <Modal visible={false}>
-            <AntDesign name="closecircle" size={24} color="teal" />
-            <Text style={styles.title}>Modal Window</Text>
+         <Modal visible={modWind}>
+            <View style={gStyle.main}>
+               <AntDesign name="closecircle" size={24} color="teal" onPress={() => setModWind(false)} />
+               <Text style={styles.title}>Modal Window</Text>
+            </View>
          </Modal>
-         <AntDesign name="pluscircle" size={24} color="teal" />
+         <AntDesign name="pluscircle" size={24} color="teal" onPress={() => setModWind(true)} />
          <Text style={[gStyle.title, styles.header]}>Main Page</Text>
          <FlatList data={news} renderItem={({ item }) => (
             <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('FullInfo', item)}>
