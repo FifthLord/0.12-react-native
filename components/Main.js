@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image, Modal } from 'react-native';
 import { gStyle } from '../styles/style';
 import { AntDesign } from '@expo/vector-icons';
+import Form from './Form';
 
 export default function Main({ navigation }) {
 
@@ -13,12 +14,17 @@ export default function Main({ navigation }) {
 
    const [modWind, setModWind] = useState(false);
 
+   const addArticle = (article) => {
+
+   }
+
    return (
       <View style={gStyle.main}>
          <Modal visible={modWind}>
             <View style={gStyle.main}>
                <AntDesign name="closecircle" size={24} color="teal" onPress={() => setModWind(false)} />
                <Text style={styles.title}>Modal Window</Text>
+               <Form />
             </View>
          </Modal>
          <AntDesign name="pluscircle" size={24} color="teal" onPress={() => setModWind(true)} />
