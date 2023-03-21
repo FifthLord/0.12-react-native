@@ -15,7 +15,14 @@ export default function Main({ navigation }) {
    const [modWind, setModWind] = useState(false);
 
    const addArticle = (article) => {
-
+      setNews((list) => {
+         article.key = Math.random().toString();
+         return [
+            article,
+            ...list
+         ]
+      });
+      setModalWindow(false);
    }
 
    return (
@@ -24,7 +31,7 @@ export default function Main({ navigation }) {
             <View style={gStyle.main}>
                <AntDesign name="closecircle" size={24} color="teal" onPress={() => setModWind(false)} />
                <Text style={styles.title}>Modal Window</Text>
-               <Form />
+               <Form addArticle={addArticle}/>
             </View>
          </Modal>
          <AntDesign name="pluscircle" size={24} color="teal" onPress={() => setModWind(true)} />

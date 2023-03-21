@@ -9,7 +9,9 @@ export default function Form() {
          <Formik
             initialValues={{ name: '', anons: '', full: '', img: '' }}
             onSubmit={(values) => {
-               console.log(values);
+               console.log(values)
+               addArticle(values);
+               action.resetForm();
             }}>
             {(props) => (
                <View>
