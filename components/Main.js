@@ -22,7 +22,7 @@ export default function Main({ navigation }) {
             ...list
          ]
       });
-      setModalWindow(false);
+      setModWind(false);
    }
 
    return (
@@ -31,7 +31,7 @@ export default function Main({ navigation }) {
             <View style={gStyle.main}>
                <AntDesign name="closecircle" size={24} color="teal" onPress={() => setModWind(false)} />
                <Text style={styles.title}>Modal Window</Text>
-               <Form addArticle={addArticle}/>
+               <Form addArticle={addArticle} />
             </View>
          </Modal>
          <AntDesign name="pluscircle" size={24} color="teal" onPress={() => setModWind(true)} />
